@@ -14,7 +14,7 @@ handler.all = async function (m) {
 	} finally {
 		
         //global.bg = await (await fetch(img)).buffer()
-		global.docc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
+		global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
 		
 		// Module 
 		global.fetch = import('node-fetch')
@@ -29,7 +29,7 @@ handler.all = async function (m) {
         ]
         
 		// ucapan ini mah
-		global.ucapan = wish()
+		global.ucapan = ucapan()
 		
 		// pesan sementara
 		global.ephemeral = '86400' // 86400 = 24jam, kalo ingin di hilangkan ganti '86400' jadi 'null' atau ''
@@ -57,10 +57,10 @@ handler.all = async function (m) {
             mediaUrl: "https://Instagram.com/hryy_28",
             mediaType: "VIDEO",
             description: "https://Instagram.com/hryy_28", 
-            title: ucapan,
+            title: 'Shinx-MD',
             body: wm,
-            thumbnailUrl: thumb,
-            sourceUrl: sweb
+            thumbnailUrl: fs.readFileSync('./thumbnail.jpg'),
+            sourceUrl: sig
     }
     } }
 global.fakegc = {
@@ -68,9 +68,9 @@ global.fakegc = {
             mediaUrl: "https://Instagram.com/hryy_28",
             mediaType: "PHOTO",
             description: "https://Instagram.com/hryy_28", 
-            title: ucapan,
+            title: 'Shinx-MD',
             body: wm,
-            thumbnailUrl: thumb,
+            thumbnailUrl: fs.readFileSync('./thumbnail.jpg'),
             sourceUrl: sgc
     }
     } }
@@ -209,26 +209,22 @@ global.fakefb = {
 
 export default handler 
 
-function wish() {
-    let wishloc = ''
-  const time = moment.tz('Asia/Kolkata').format('HH')
-  wishloc = ('Hi')
-  if (time >= 0) {
-    wishloc = ('Night Rider')
-  }
-  if (time >= 4) {
-    wishloc = ('Good Morning')
-  }
-  if (time >= 12) {
-    wishloc = ('Good Afternoon')
-  }
-  if (time >= 16) {
-    wishloc = ('️Good Evening')
-  }
-  if (time >= 23) {
-    wishloc = ('Night Rider')
-  }
-  return wishloc
+function ucapan() {
+    const time = moment.tz('Asia/Jakarta').format('HH')
+    let res = "Selamat malam 🌙"
+    if (time >= 4) {
+        res = "Selamat pagi 🌄"
+    }
+    if (time > 10) {
+        res = "Selamat siang ☀️"
+    }
+    if (time >= 15) {
+        res = "Selamat sore 🌅"
+    }
+    if (time >= 18) {
+        res = "Selamat malam 🌙"
+    }
+    return res
 }
 
 function pickRandom(list) {
