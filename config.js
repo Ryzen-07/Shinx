@@ -59,11 +59,7 @@ global.ddocx = 'application/vnd.openxmlformats-officedocument.wordprocessingml.d
 global.dxlsx = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 global.dpdf = 'application/pdf'
 global.drtf = 'text/rtf'
-
-global.thumbdoc = 'https://telegra.ph/file/6048ec3e029520424c234.jpg'
-
-/*=========== FAKE SIZE ===========*/
-global.fsizedoc = '99999999999999' // default 10TB
+global.fsizedoc = '99999999999999' 
 global.fpagedoc = '999'
 
 /*=========== HIASAN ===========*/
