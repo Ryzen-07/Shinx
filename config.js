@@ -1,5 +1,6 @@
 // Save lah banh kontak gw :v 
 // 083148375193
+import fs from 'fs'
 
 //=============『 Staff 』============== //
 global.owner = [
@@ -62,34 +63,12 @@ global.drtf = 'text/rtf'
 global.fsizedoc = '99999999999999' 
 global.fpagedoc = '999'
 
-/*=========== HIASAN ===========*/
-// DEFAULT MENU
-global.dmenut = '❏═┅═━–〈' //top
-global.dmenub = '┊•' //body
-global.dmenub2 = '┊' //body for info cmd on Default menu
-global.dmenuf = '┗––––––––––✦' //footer
+//=============『 Sticker-wm 』============== //
+global.stickpack = 'By Shinx'
+global.stickauth = ``
 
-// COMMAND MENU
-global.cmenut = '❏––––––『' //top
-global.cmenuh = '』––––––' //header
-global.cmenub = '┊☃︎ ' //body
-global.cmenuf = '┗━═┅═━––––––๑\n' //footer
-global.cmenua = '\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     ' //after
-global.pmenus = '☃︎' //pembatas menu selector
-
-global.htki = '––––––『' //hiasan title kiri
-global.htka = '』––––––' //hiasan title kanan
-global.lopr = 'Ⓟ'
-global.lolm = 'Ⓛ'
-global.htjava = '☘︎' //hiasan Doang :v
-
-/*============== STICKER WM ==============*/
-global.stickpack = '.'
-global.stickauth = `.`
-
+//=============『 Game-RPG 』============== //
 global.multiplier = 38 // The higher, The harder levelup
-
-/*============== EMOJI ==============*/
 global.rpg = {
   emoticon(string) {
     string = string.toLowerCase()
@@ -134,6 +113,9 @@ global.rpg = {
 }
 
 //------ JANGAN DIUBAH -----
+import { watchFile, unwatchFile } from 'fs'
+import chalk from 'chalk'
+import { fileURLToPath } from 'url'
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
   unwatchFile(file)
